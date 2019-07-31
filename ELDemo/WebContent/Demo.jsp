@@ -44,5 +44,18 @@
 			
 			${pageContext.request.method}
 			
+			
+			
+			
+			<c:catch var="excep">
+			<%
+	
+				int x=30/0;
+			%>
+			</c:catch>
+	
+	
+			<br/>Exception is : <c:out value="${excep}"/>
+			
 </body>
 </html>

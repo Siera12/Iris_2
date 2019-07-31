@@ -11,7 +11,7 @@
 
 	<fieldset>
 		<legend>Change your Password</legend>
-		<form action="PW" method="post">	
+		<form action="PW" method="post" onsubmit=passcheck()>	
 			<table>
 			<tr>
 					<td>Enter ID : </td>
@@ -28,9 +28,16 @@
 				<tr>
 					<td>Enter new password : </td>
 					<td>
-						<input type="password" name="empnp" placeholder="Enter new password" required/>
+						<input type="password" name="empnp" id="z1"placeholder="Enter new password" required/>
 					</td>
 				</tr>
+				<tr>
+					<td>Confirm new password : </td>
+					<td>
+						<input type="password" name="empnp1" id="z2" placeholder="Confirm new password" required/>
+					</td>
+				</tr>
+			
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="Submit"/>
@@ -41,5 +48,18 @@
 	</fieldset>
 	
 	</div>
+	<script>
+	function passcheck(){
+		if(document.getElementbyId("z1").value!=document.getElementbyId("z2").value){
+			alert("pass thik se dal");
+		}
+		else{
+			return true;	
+		}
+	}
+	
+	
+	
+	</script>
 </body>
 </html>
