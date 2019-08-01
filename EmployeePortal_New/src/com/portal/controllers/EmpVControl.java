@@ -32,6 +32,7 @@ public class EmpVControl extends HttpServlet {
 		
 		Employee eObj=(Employee)session.getAttribute("userObj");
 		int i=eObj.getEmployeeId();
+		String j=eObj.getContactNo();
 		
 		/*int i=Integer.parseInt(request.getParameter("empid"));*/
 		response.setContentType("text/html");
@@ -57,6 +58,7 @@ public class EmpVControl extends HttpServlet {
 					out.println(q);
 					out.println(contactNo);
 					out.println(email);
+					out.println(j);
 				}
 	}catch(Exception e) {
 		e.printStackTrace();

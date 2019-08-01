@@ -1,3 +1,4 @@
+<%@ page session="false" %>
 <jsp:include page="Header.jsp"/>
 
 	<fieldset>

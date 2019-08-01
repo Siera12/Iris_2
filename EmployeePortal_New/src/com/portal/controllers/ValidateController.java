@@ -37,6 +37,8 @@ public class ValidateController extends HttpServlet {
 			HttpSession session=request.getSession();
 			session.setAttribute("userObj",r);
 			
+			daoObj.updateEmployee(r);
+			
 			if(r.getRole().equals("Admin")){
 				session.setAttribute("userName", r.getEmployeeName());
 				session.setAttribute("id", empid);

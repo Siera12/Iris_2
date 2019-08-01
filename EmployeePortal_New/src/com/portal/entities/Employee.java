@@ -1,10 +1,13 @@
 package com.portal.entities;
 
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+
 import com.portal.daos.EmployeeDao;
 import com.portal.daosimpl.EmployeeDaoImpl;
 
 //POJO
-public class Employee {
+public class Employee implements HttpSessionBindingListener{
 	
 	private int employeeId;
 	private String employeeName;
@@ -64,5 +67,17 @@ public class Employee {
 		this.role = role;
 	}
 	
+	public void valueBound(HttpSessionBindingEvent userObj) {
+		System.out.println("-- HttpSessionBinding#valueBound() --");
+		
+			Employee emp=(Employee)userObj.getValue();
+			emp.setContactNo("+91"+emp.getContactNo());
+	}
+	
+	public void valueUnbound(HttpSessionBindingEvent userObj) {
+		System.out.println("-- Http");
+		
+			
+	}
 	
 }
