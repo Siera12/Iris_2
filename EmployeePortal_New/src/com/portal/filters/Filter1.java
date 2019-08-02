@@ -45,6 +45,8 @@ public class Filter1 implements Filter {
 		int hr=ldt.getHour();
 		int dy=ldt.getDayOfMonth();
 		
+		
+		
 		System.out.println("Hour = "+hr);
 		
 		if((hr>=9 && hr<=18) && (dy>=1 && dy<=15)) {
