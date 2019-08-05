@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>Group1</groupId>
-  <artifactId>FirstMaven</artifactId>
+  <artifactId>SecondMaven</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>FirstMaven</name>
+  <name>SecondMaven</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -21,14 +21,13 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
     <version>5.4.4.Final</version>
 </dependency>
-    
-    
     
     
   </dependencies>
