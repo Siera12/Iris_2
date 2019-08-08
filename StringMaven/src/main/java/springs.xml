@@ -1,0 +1,44 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:aop = "http://www.springframework.org/schema/aop"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+   <!-- bean definition & AOP specific configuration -->
+   
+  <!-- <bean id="engObj" class="examples.Engine">
+   		<property name="cc" value="600"/>
+   		<property name="make" value="Honda"/>
+   </bean>-->
+   
+     
+ 	 <bean id="engObj" class="examples.Engine">
+   		<constructor-arg value="600"/>
+   		<constructor-arg value="Honda"/>
+   </bean> 
+   <bean id="engObj1" class="examples.Engine">
+   		<constructor-arg value="660"/>
+   		<constructor-arg value="Hondagg"/>
+   </bean> 
+   <bean id="engObj2" class="examples.Engine">
+   		<constructor-arg value="666"/>
+   		<constructor-arg value="new" index="1"/>
+   </bean> 
+  
+    <bean id="carObj" class="examples.Car" autowire="constructor" >
+  		<constructor-arg value="999" />
+  		<constructor-arg ref="engObj"/>
+  		<constructor-arg value="Black"/>
+  		
+  		<constructor-arg>	
+  			<set>
+  				<ref bean="engObj1"/>
+  				<ref bean="engObj2"/>
+  			</set>
+  		</constructor-arg>
+ 	</bean>  
+   
+</beans>
