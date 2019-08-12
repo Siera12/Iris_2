@@ -46,8 +46,8 @@
     <!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
 <dependency>
     <groupId>com.oracle</groupId>
-    <artifactId>ojdbc6</artifactId>
-    <version>11</version>
+    <artifactId>ojdbc8</artifactId>
+    <version>19.3</version>
 </dependency>
   </dependencies>
 </project>
