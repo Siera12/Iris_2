@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.examples.models.Product;
 
-@Repository
+@Repository(value="productDao")
 @Transactional
 public class ProductDaoImpl implements ProductDao{
 	
@@ -22,7 +22,7 @@ public class ProductDaoImpl implements ProductDao{
 	public boolean addProduct(Product p) {
 		try {
 			Session session=sessionFactory.getCurrentSession();
-			session.save(p);
+			session.persist(p);
 			return true;
 		}
 		catch(Exception e) {

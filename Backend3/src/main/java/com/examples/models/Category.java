@@ -14,8 +14,11 @@ public class Category {
 	private String categoryName;
 	
 	private String categoryDesc;
+	
 	@OneToMany(mappedBy="cate")
 	private List<Product> products;
+	
+	
 	public String getCategoryId() {
 		return categoryId;
 	}

@@ -1,5 +1,6 @@
 package com.examples.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -13,7 +14,7 @@ public class Product {
 	
 	private String productDesc;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Category cate;
 
 	public String getProductId() {

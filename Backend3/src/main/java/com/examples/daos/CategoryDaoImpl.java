@@ -22,7 +22,7 @@ public class CategoryDaoImpl implements CategoryDao{
 	public boolean addCategory(Category c) {
 		try {
 			Session session=sessionFactory.getCurrentSession();
-			session.save(c);
+			session.persist(c);
 			return true;
 		}
 		catch(Exception e) {
@@ -45,5 +45,53 @@ public class CategoryDaoImpl implements CategoryDao{
 		}
 		return null;
 	}
+	
+	public boolean deleteCategory(String categoryId) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			Category c=new Category();
+			c.setCategoryId(categoryId);
+			session.delete(c);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+
+	public boolean updateCategory(Category c) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			session.update(c);
+			
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Category getCategory(String categoryId) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			Category c=session.get(Category.class, categoryId);
+			return c;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
+
+
 

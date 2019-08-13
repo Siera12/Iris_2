@@ -10,4 +10,8 @@ public interface CategoryDao {
 	
 	public List<Category> getAllCategories();
 	
+	public boolean deleteCategory(String categoryId);
+	
+	public boolean updateCategory(Category c);
+	public Category getCategory(String categoryId);
 }
