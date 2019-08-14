@@ -21,6 +21,7 @@ public class Product {
 	@JoinColumn(name="categoryId",insertable=false,updatable=false)
 	private Category cate;
 
+	
 	private int categoryId;
 	
 	public String getProductId() {
