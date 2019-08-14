@@ -22,7 +22,8 @@ public class CategoryDaoImpl implements CategoryDao{
 	public boolean addCategory(Category c) {
 		try {
 			Session session=sessionFactory.getCurrentSession();
-			session.persist(c);
+			//session.persist(c);
+			session.saveOrUpdate(c);
 			return true;
 		}
 		catch(Exception e) {

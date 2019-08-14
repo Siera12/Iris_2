@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.examples.models.Category;
 import com.examples.models.Product;
 
 @Repository(value="productDao")
@@ -22,7 +23,7 @@ public class ProductDaoImpl implements ProductDao{
 	public boolean addProduct(Product p) {
 		try {
 			Session session=sessionFactory.getCurrentSession();
-			session.persist(p);
+			session.saveOrUpdate(p);
 			return true;
 		}
 		catch(Exception e) {
@@ -46,4 +47,51 @@ public class ProductDaoImpl implements ProductDao{
 		return null;
 	}
 
+
+	public boolean deleteProduct(String productId) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			Product p=new Product();
+			p.setProductId(productId);
+			session.delete(p);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+
+	public boolean updateProduct(Product p) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			session.update(p);
+			
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+
+	public Product getProduct(String productId) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			Product p=session.get(Product.class, productId);
+			return p;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

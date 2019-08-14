@@ -1,8 +1,11 @@
 package com.examples.models;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -14,9 +17,12 @@ public class Product {
 	
 	private String productDesc;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade=CascadeType.PERSIST,targetEntity=Category.class)
+	@JoinColumn(name="categoryId",insertable=false,updatable=false)
 	private Category cate;
 
+	private int categoryId;
+	
 	public String getProductId() {
 		return productId;
 	}
@@ -47,6 +53,14 @@ public class Product {
 
 	public void setCate(Category cate) {
 		this.cate = cate;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	

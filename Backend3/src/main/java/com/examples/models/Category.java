@@ -2,20 +2,24 @@ package com.examples.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
 	@Id
+
 	private String categoryId;
 	
 	private String categoryName;
 	
 	private String categoryDesc;
 	
-	@OneToMany(mappedBy="cate")
+	@OneToMany(cascade=CascadeType.ALL,targetEntity=Product.class,mappedBy="cate")
 	private List<Product> products;
 	
 	
